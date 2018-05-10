@@ -1,0 +1,19 @@
+version: "3"
+services:
+  build:
+    command: jekyll build
+    privileged: true
+    image: dovidkopel/jekyll-aws:latest
+    volumes:
+      - $PWD:/srv/jekyll
+  serve:
+    command: jekyll serve
+    privileged: true
+    image: dovidkopel/jekyll-aws:latest
+    volumes:
+      - $PWD:/srv/jekyll
+    ports:
+      - 4000:4000
+      - 35729:35729
+      - 3000:3000
+      - 80:4000
