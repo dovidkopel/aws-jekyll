@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - env
+      - python3 jekyll-build.py
+      - python3 pre-upload.py
+      - aws s3 cp _site s3://$BUCKET/ --acl public-read --recursive
+      - python3 rename-html.py
