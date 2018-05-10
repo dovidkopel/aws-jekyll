@@ -1,0 +1,69 @@
+# Site
+title:              Dovid Kopel - Technologist
+bio:                Technology Consigliere & Innovator, Open Source Evangelist, Trekkie, Geek
+description:        Musing about computers, technology and science
+headline:           I'm a wartime technology consigliere.
+locale:             en_US
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    permalink: /:year/:month/:title
+    layout: post
+    author:
+
+# Jekyll
+permalink:          /:year/:month/:title
+markdown:           kramdown
+highlighter:        rouge
+timezone:           America/New_York
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Gems
+plugins:
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-analytics
+  - jekyll-archives
+
+paginate: 6
+paginate_path: "/archives/page/:num"
+
+jekyll-archives:
+  enabled: all
+  layout: 'archive'
+  layouts:
+    year: year-archive
+    month: month-archive
+    day: day-archive
+    tag: tag-archive
+    category: category-archive
+  permalinks:
+    title: '/:year/:month/:title/'
+    year: '/archives/date/:year/'
+    month: '/archives/date/:year-:month/'
+    day: '/archives/date/:year-:month-:day/'
+    tag: '/archives/tag/:name/'
+    category: '/archives/category/:name/'
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old, buildspec.yml, Dockerfile, docker-compose.yml, '*.sh', '*.py']
